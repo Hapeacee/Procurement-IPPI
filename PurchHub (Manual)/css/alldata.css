@@ -1,0 +1,323 @@
+/* General Container Styling */
+.container.table-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-height: 500px;
+    max-width: 1200px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: hidden;
+}
+
+/* Header Styling */
+.table-header {
+    margin-bottom: 10px;
+}
+
+/* Header Title */
+.header-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem; /* Tingkatkan ukuran font */
+    font-weight: 600;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #007bff; /* Warna biru untuk membedakan header */
+    color: #ffffff; /* Teks putih untuk kontras */
+    border-radius: 8px;
+}
+
+/* Table Scroll Container */
+.table-scroll {
+    max-height: 400px; /* Tentukan tinggi maksimum untuk tabel */
+    overflow-y: auto; /* Scroll hanya pada sumbu Y */
+    display: block; /* Memastikan tabel hanya berada dalam area yang scrollable */
+    width: 100%;
+}
+
+/* Table Styling */
+.table {
+    margin: 0;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;  /* Menghilangkan jarak antar elemen tabel */
+    table-layout: fixed;
+}
+.table th {
+    position: sticky;
+    top: 0px;  /* Menjaga header tetap di atas */
+    background-color: #00468b; /* Background solid agar tidak menembus */
+    z-index: 2; /* Pastikan header tetap berada di atas konten tabel */
+
+}
+
+.table thead {
+    background-color: #212529;
+    color: #ffffff;
+}
+
+.table th, .table td {
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 13px;
+    white-space: nowrap; /* Menghindari pemotongan teks */
+}
+/* Pastikan tbody tidak punya padding atau margin yang bisa menyebabkan geseran */
+.table tbody {
+    max-height: 250px; /* Sesuaikan tinggi maksimal yang bisa di-scroll */
+    overflow-y: auto; /* Overflow hanya pada sumbu Y */
+    width: 100%;
+}
+.table tbody tr {
+    border-bottom: 1px solid #dee2e6;
+    transition: background-color 0.2s ease-in-out;
+}
+.table tr {
+    height: 10px;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Button Styling */
+.btn {
+    font-family: 'Poppins', sans-serif;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-update {
+    background-color: #ffc107;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-update:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* No Transactions Found Message */
+.text-center {
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table th, 
+    .table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+
+/* Modal Hidden by Default */
+#updateModal {
+    display: none; /* Sembunyikan modal awalnya */
+    position: fixed;
+    z-index: 1050;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px; /* Memperbesar lebar modal */
+    background-color: #ffffff;
+    border-radius: 12px; /* Rounded corners untuk tampilan lebih modern */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Bayangan lebih halus */
+    overflow: hidden; /* Menghindari konten keluar dari modal */
+    padding: 25px; /* Menambah padding lebih banyak untuk konten */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-in-out;
+}
+
+/* Modal Transition */
+#updateModal.show {
+    display: block; /* Tampilkan modal saat class 'show' ditambahkan */
+    animation: fadeIn 0.3s ease-in-out, zoomIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.8); /* Efek zoom-in */
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Overlay Background */
+.modal-backdrop {
+    display: none; /* Sembunyikan backdrop awalnya */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Backdrop lebih gelap untuk fokus */
+    z-index: 1040;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.modal-backdrop.show {
+    display: block; /* Tampilkan backdrop saat class 'show' ditambahkan */
+    background: rgba(0, 0, 0, 0.7); /* Warna lebih gelap saat modal aktif */
+}
+
+/* Modal Header */
+#updateModal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Modal Title */
+#updateModal .modal-header h5 {
+    font-size: 1.5rem; /* Lebih besar untuk judul */
+    color: #333;
+    font-weight: 600;
+}
+
+/* Close Button */
+#updateModal .close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+#updateModal .close:hover {
+    color: #ff6347; /* Warna saat hover */
+}
+
+/* Modal Body */
+#updateModal .modal-body {
+    padding: 15px 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Input Styling */
+#updateModal .modal-body input[type="text"],
+#updateModal .modal-body input[type="number"],
+#updateModal .modal-body select,
+#updateModal .modal-body textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0 20px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    box-sizing: border-box; /* Untuk menghindari overflow */
+}
+
+#updateModal .modal-body input[type="text"]:focus,
+#updateModal .modal-body input[type="number"]:focus,
+#updateModal .modal-body select:focus,
+#updateModal .modal-body textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Modal Footer */
+#updateModal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+/* Button */
+#updateModal .btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#updateModal .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+#updateModal .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+#updateModal .btn-secondary {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+#updateModal .btn-secondary:hover {
+    background-color: #e2e6ea;
+}
+
+/* Overlay Background */
+.modal-backdrop {
+    display: none; /* Backdrop disembunyikan pada awalnya */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+}
+
+.modal-backdrop.show {
+    display: block; /* Menampilkan backdrop saat class 'show' ditambahkan */
+}

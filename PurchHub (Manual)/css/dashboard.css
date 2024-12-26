@@ -1,0 +1,436 @@
+/* Body dan Pengaturan Umum */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+  background: linear-gradient(to right, #dfe9f3, #ffffff); /* Gradasi biru muda ke putih */
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .logo {
+    width: 60px;
+  }
+
+/* Navbar Styles */
+.navbar {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 15px; /* Lebih kecil padding */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Brand Logo */
+.navbar .logo-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo {
+  width: 30px; /* Ukuran logo lebih kecil */
+  margin-right: 8px; /* Spasi lebih kecil */
+}
+
+.navbar .brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar .brand {
+  font-size: 18px; /* Ukuran font lebih kecil */
+  font-weight: bold;
+  color: #191a19;
+  margin: 0;
+}
+
+.navbar .division {                                                                                                                                                                                                   
+  color: #191a19;
+  font-size: 10px; /* Ukuran font lebih kecil */
+  margin: 0;
+}
+
+/* Navbar Links */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Lebih kecil gap */
+  list-style: none;
+  margin: 0; /* Menghilangkan margin */
+}
+
+.navbar-menu li {
+  display: inline-block;
+  position: relative;
+  margin-left: 15px; /* Margin lebih kecil */
+}
+
+.navbar-menu a {
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: #3C3D37;
+  font-size: 12px; /* Ukuran font lebih kecil */
+  padding: 6px 10px; /* Padding lebih kecil */
+  border-radius: 6px; /* Radius sudut lebih kecil */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-menu a:hover {
+  background-color: #4070f4;
+  color: #ffffff;
+}
+
+/* Hamburger menu for responsive design */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  background-color: white;
+  height: 2px; /* Lebih kecil */
+  margin: 4px 0; /* Margin lebih kecil */
+  width: 20px; /* Lebih kecil */
+}
+
+/* Dropdown Icon */
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-toggle i {
+  transition: transform 0.3s;
+}
+
+/* Hide Dropdown by Default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 180px; /* Lebih kecil lebar dropdown */
+  z-index: 100;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 12px; /* Padding lebih kecil */
+  font-size: 12px; /* Ukuran font lebih kecil */
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: #4070f4;
+  color: #ffffff;
+}
+
+.navbar .dropdown.show .dropdown-menu {
+  display: block;
+}
+
+/* Rotate icon when active */
+.navbar .dropdown.show .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none; /* Hide menu by default on small screens */
+    flex-direction: column;
+    background-color: #4070f4;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+  }
+
+  .navbar-menu.show {
+    display: flex; /* Show menu when toggled */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger menu */
+  }
+}
+/* Main content (Dashboard) */
+.main-content {
+  margin: 50px auto 15px;
+  padding: 10px;
+  width: 90%;
+  max-width: 900px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h1 {
+  font-size: 20px;
+  color: #333333;
+}
+
+.main-content p {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.4;
+}
+
+.dashboard h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.table-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Container Styling */
+.items-container {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.items {
+  background: #fff;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  width: 48%;
+}
+
+/* Dropdown Section */
+.dropdown-container {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.dropdown-container label {
+  font-weight: normal;
+  color: #2c3e50;
+  font-size: 12px; /* Label lebih kecil */
+}
+
+.dropdown-container select {
+  position: relative;
+  left: 6px;
+  padding: 6px;
+  margin-top: 4px;
+  font-size: 12px;
+  font-family: 'Poppins', 'sans-serif';
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 250px;
+  background: #ffffff;
+  color: #333;
+}
+
+/* Summary Section */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.summary-card {
+  background: #fefefe;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  text-align: center;
+  border-top: 5px solid #4070f4;
+}
+
+.summary-card h3 {
+  margin-bottom: 8px;
+  font-size: 16px; /* Lebih besar */
+  color: #4070f4;
+}
+
+.summary-card p {
+  font-size: 14px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.filter {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.filter label {
+  margin-right: 6px;
+  font-size: 14px; /* Ukuran font filter label lebih besar */
+}
+
+/* Konten Kotak */
+.content-box {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.content-box h2 {
+  margin: 0 0 6px 0;
+  font-size: 18px; /* Lebih besar */
+}
+
+.content-box p {
+  margin: 5px 0;
+  color: #333;
+  font-size: 14px; /* Lebih besar */
+}
+
+.content-box .data-summary {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #4070f4;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown */
+#month-dropdown {
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#month-dropdown:hover {
+  border-color: #3498db;
+}
+
+#month-dropdown:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Bagian Section */
+.section {
+  margin-bottom: 15px;
+}
+
+.section h2 {
+  font-size: 18px; /* Lebih besar */
+  margin-bottom: 6px;
+  color: #2c3e50;
+}
+
+/* Not Inputted Section */
+.not-input-summary {
+  margin-top: 12px;
+  padding: 6px;
+}
+
+.not-input-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.not-input-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.not-input-summary h2 {
+  color: #eb1313;
+  font-size: medium;
+}
+
+.not-input-card h3 {
+  font-size: 14px; /* Lebih besar */
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.not-input-card p {
+  font-size: 12px; /* Lebih besar */
+  margin: 4px 0;
+  color: #555;
+}
+
+.not-input-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 60px;
+  overflow-y: auto;
+  font-size: 11px;
+}
+
+.not-input-card ul li {
+  margin-bottom: 3px;
+  color: #777;
+}
+
+.not-input-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+.not-input-card ul {
+  overflow-y: auto; /* Memungkinkan scroll secara vertikal */
+  
+  scrollbar-width: thin; /* Untuk browser berbasis Firefox, gunakan scrollbar tipis */
+  scrollbar-color: gray transparent; /* Warna track dan scrollbar di Firefox */
+}
+
+.not-input-card ul::-webkit-scrollbar {
+  width: 6px; /* Lebar scrollbar */
+}
+
+.not-input-card ul::-webkit-scrollbar-thumb {
+  background-color: gray; /* Warna scrollbar */
+  border-radius: 10px; /* Membuat scrollbar bundar */
+}
+
+.not-input-card ul::-webkit-scrollbar-track {
+  background: transparent; /* Track transparan */
+}
+
+
